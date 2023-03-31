@@ -19,4 +19,19 @@ Processos para deploy
         - verificar os serviços loval via kubectl: kubectl get svc -n nginx ou watch 'kubectl get svc -n nginx'
 
 comando kubernetes
-- export PATH=/opt/homebrew/bin:$PATH
+- brew install kind
+- brew install kubernetes
+- brew install minikube
+- kind create cluster --name=nome_do_cluster
+- kubectl get nodes
+- kubectl get pods
+- kubectl get services
+- kubectl apply -f k8s/deployment.yaml
+- kubectl describe <podname>
+- kubectl delete deployment goserver
+- kubectl port-forward service/goserver-service 3000:3000
+
+comando docker
+- docker build -t teste/projeto-app-k8s .
+- docker run -p 3000:3000 teste/projeto-app-k8s:latest -> rodando a imagem docker
+- docker push teste/projeto-app-k8s:latest -> subindo nossa imagem no dockerhub
