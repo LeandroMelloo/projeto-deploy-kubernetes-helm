@@ -1,0 +1,22 @@
+Processos para deploy
+ 1 -> Instalar o NGINX Ingress Controler
+ 2 -> Deploy com o yaml no K8S
+ 3 -> Criação do Chart
+ 4 -> Deploy com o Chart
+
+ Ferramentas para auxiliar
+    - artifacthub.io = é um reposito onde consigo publicar e utilizar pacotes charts e utilizar no meu ks8
+        - vou utilizar o ingress-nginx
+        - adicionar o ingress-nginx na minha maquina local utilizando o helm
+        - adicionando o repo local via helm: helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+        - atualizando o repo local via helm: helm repo update
+        - buscar o repo local adicionado via helm: helm search repo nginx
+        - se caso o server local não estiver configurado rodar o seguinte comando, se estiver utilizando o minikube: minikube start --memory=4096
+        - criando um namespace local via kubectl: kubectl create namespace nginx
+        - instalando o Chart local via helm: helm install nginx ingress-nginx/ingress-nginx --namespace nginx
+        - verificar se a instalação do Chart local via kubectl foi criada com sucesso: kubectl get all -n nginx
+        - cada instalação que é feita gera uma realese e podemos buscar local via helm: helm list -n nginx
+        - verificar os serviços loval via kubectl: kubectl get svc -n nginx ou watch 'kubectl get svc -n nginx'
+
+comando kubernetes
+- export PATH=/opt/homebrew/bin:$PATH
